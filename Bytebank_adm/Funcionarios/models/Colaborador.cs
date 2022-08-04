@@ -25,6 +25,8 @@ namespace Bytebank_adm.Funcionarios.models
         public string Cpf { get; }
         public double Salario { get; }
         public int Tipo { get; }
+
+        public static int totalFuncionarios { get; private set; }
         /*=====================*/
 
         public Colaborador(string nome, string cpf, double salario, int _tipo)
@@ -54,7 +56,7 @@ namespace Bytebank_adm.Funcionarios.models
             switch (tipo)
             {
                 case 0:
-                    return "Funcionário";
+                    return "Desenvolvedor";
                 case 1:
                     return "Diretor";
                 case 2:
@@ -66,7 +68,8 @@ namespace Bytebank_adm.Funcionarios.models
 
         public override string ToString()
         {
-            return $"\nTipo: {traduzTipo(Tipo)}\nNome: {Nome}\nCPF {Cpf}\nSalário: {Salario}\nBonificação: {getBonificacao()}\n";
+            totalFuncionarios++;
+            return $"\nID:{totalFuncionarios}\nTipo: {traduzTipo(Tipo)}\nNome: {Nome}\nCPF {Cpf}\nSalário: {Salario}\nBonificação: {getBonificacao()}\n";
         }
     }
 }

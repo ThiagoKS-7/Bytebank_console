@@ -15,16 +15,7 @@ namespace Bytebank_adm.Funcionarios.models
 
         public override double getBonificacao()
         {
-            switch (Tipo)
-            {
-                case 0:
-                    return Salario * 0.1;
-                case 2:
-                    return Salario * 0.5;
-                default:
-                    return Salario;
-            }
-            
+            return base.getBonificacao() * 0.4;
         }
     }
 }
