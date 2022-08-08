@@ -9,7 +9,7 @@ namespace Bytebank_adm.Funcionarios.views
 {
     public class FuncView
     {
-        public void showFuncionarios(List<Colaborador> list)
+        public void ShowFuncionarios(List<Colaborador> list)
         {
             foreach (Colaborador i in list)
             {
@@ -17,9 +17,18 @@ namespace Bytebank_adm.Funcionarios.views
             }
         }
 
-        public void showTotalBonificacoes(double total)
+        public void ShowTotalBonificacoes(double total)
         {
             Console.WriteLine($"Total no ano: R$ {total}");
+        }
+
+        public void ShowBalance(List<Colaborador> list)
+        {
+            foreach (Colaborador i in list)
+            {
+                string res = i.Nome + " - R$" + i.Salario;
+                Console.WriteLine(res);
+            }
         }
     }
 }

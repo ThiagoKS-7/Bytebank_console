@@ -8,11 +8,16 @@ namespace Bytebank_adm.Funcionarios.models
 {
     public class Diretor:Colaborador
     {
-
-        public Diretor(string nome, string cpf, double salario, int tipo) : base(nome, cpf, salario, tipo)
+        public Diretor(string nome, string cpf, double salario) : base(nome, cpf, salario, 1)
         {
-            Colaborador cb = new(nome, cpf, salario, tipo);
+            ValidaSalario(nome, cpf, salario, 1, 5000);
         }
 
+
+        public override void AumentarSalario(double porcentagem)
+        {
+            double res = porcentagem / 100;
+            this.Salario *= (1.15 + res);
+        }
     }
 }
