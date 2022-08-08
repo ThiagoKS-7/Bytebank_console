@@ -11,39 +11,55 @@ namespace Bytebank_adm.Funcionarios.controllers
     public class FuncionarioController
     {
         private List<Colaborador>? list;
-        private List<Colaborador> getTipo(List<Colaborador> funcionarios)
+        private List<Colaborador> GetTipo(List<Colaborador> funcionarios)
         {
             List<Colaborador> list = new List<Colaborador>();
             foreach (Colaborador i in funcionarios)
             {
-                if (i.Tipo == 1)
+                switch(i.Tipo)
                 {
-                    Diretor dr = new Diretor(i.Nome, i.Cpf, i.Salario, i.Tipo);
-                    list.Add(dr);
+                    case 0:
+                        list.Add(new Auxiliar(i.Nome, i.Cpf, i.Salario));
+                        break;
+                    case 1:
+                        list.Add(new Diretor(i.Nome, i.Cpf, i.Salario));
+                        break;
+                    case 2:
+                        list.Add(new Designer(i.Nome, i.Cpf, i.Salario));
+                        break;
+                    case 3:
+                        list.Add(new GerenteDeContas(i.Nome, i.Cpf, i.Salario));
+                        break;
+                    default:
+                        list.Add(new Funcionario(i.Nome, i.Cpf, i.Salario));
+                        break;
                 }
-                else
-                {
-                    Funcionario fr = new Funcionario(i.Nome, i.Cpf, i.Salario, i.Tipo);
-                    list.Add(fr);
-                }
+               
             }
             return list;
         }
-        public void getTotalBonificacoes(List<Colaborador> funcionarios)
+        public void GetTotalBonificacoes(List<Colaborador> funcionarios)
         {
             double total = 0;
             FuncView fv = new FuncView();
             foreach (Colaborador i in list)
             {
-                total += i.getBonificacao(); 
+                total += i.GetBonificacao(); 
             }
-            fv.showTotalBonificacoes(total);
+            fv.ShowTotalBonificacoes(total);
         }
-        public void listarFuncionarios(List<Colaborador> funcionarios)
+        public void ListarFuncionarios(List<Colaborador> funcionarios)
         {
             FuncView fv = new FuncView();
-            list = getTipo(funcionarios);
-            fv.showFuncionarios(list);
+            list = GetTipo(funcionarios);
+            fv.ShowFuncionarios(list);
+        }
+
+        public void ListarSaldos(List<Colaborador> funcionarios)
+        {
+            FuncView fv = new FuncView();
+            list = GetTipo(funcionarios);
+            fv.ShowFuncionarios(list);
         }
     }
 }

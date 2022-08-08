@@ -17,12 +17,17 @@ namespace Bytebank_adm.Controllers
             List<Colaborador> list = new List<Colaborador>();
             FuncionarioRepository fr = new FuncionarioRepository();
             FuncionarioController fc = new FuncionarioController();
-            
+            List<Colaborador> funcionarios = fr.GetList(list);
             Console.WriteLine("Boas vindas ao Bytebank adm!\n");
             Console.WriteLine("LISTAGEM DE FUNCIONARIOS:");
-            fc.listarFuncionarios(fr.getList(list));
+            fc.ListarFuncionarios(funcionarios);
             Console.WriteLine("TOTAL ANUAL DE BONIFICAÇÕES:");
-            fc.getTotalBonificacoes(fr.getList(list));
+            fc.GetTotalBonificacoes(funcionarios);
+
+            funcionarios[0].AumentarSalario(10);
+            funcionarios[1].AumentarSalario(10);
+            Console.WriteLine("\n\nFUNCIONARIOS PÓS AUMENTO:");
+            fc.ListarSaldos(funcionarios);
         }
     }
 }
