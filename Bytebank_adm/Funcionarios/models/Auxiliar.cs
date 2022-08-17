@@ -10,7 +10,8 @@ namespace Bytebank_adm.Funcionarios.models
     {
         public Auxiliar(string nome, string cpf, double salario) : base(nome, cpf, salario, 0)
         {
-            ValidaSalario(nome, cpf, salario, 0, 2000);
+            base.Usr = "auxiliar_";
+            ValidaSalario(nome, cpf, salario, 0, 2000, (base.Usr + cpf.Substring(0, 7)), base.Senha);
         }
 
         public override double GetBonificacao()

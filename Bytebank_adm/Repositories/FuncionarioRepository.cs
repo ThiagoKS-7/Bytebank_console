@@ -9,13 +9,20 @@ namespace Bytebank_adm.Repositories
 {
     public class FuncionarioRepository
     {
+        dynamic[] colaboradores =
+        {
+            new Diretor("Paula Vieira Filho", "019.977.980-50", 522.70),
+            new GerenteDeContas("Hogger Flux", "231.399.980-74", 4360.40),
+            new Auxiliar("João Lima da Cunha", "064.311.690-77", 2054.42),
+            new Designer("Flávia Garcia", "247.822.930-70", 3830.90),
+            new Auxiliar("Ednaldo Pereira", "966.046.970-53", 2360.40),
+        };
         public List<Colaborador> GetList(List<Colaborador> list)
         {
-            list.Add(new Auxiliar("João Lima da Cunha", "123.456.678-53", 2054.42));
-            list.Add(new Diretor("Paula Vieira Filho", "123.456.678-53", 522.70));
-            list.Add(new Designer("Flávia Garcia", "123.456.678-53", 3830.90));
-            list.Add(new Auxiliar("Ednaldo Pereira", "123.456.678-53", 2360.40));
-            list.Add(new GerenteDeContas("Hogger Flux", "925.457.604-41", 4360.40));
+            for (int i = 0; i < colaboradores.Length; i ++)
+            {
+                list.Add(colaboradores[i]);
+            }
             return list;
         }
     }
