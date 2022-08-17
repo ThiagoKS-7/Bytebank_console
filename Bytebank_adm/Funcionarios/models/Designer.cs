@@ -11,7 +11,8 @@ namespace Bytebank_adm.Funcionarios.models
     {
         public Designer(string nome, string cpf, double salario) : base(nome, cpf, salario, 2)
         {
-            ValidaSalario(nome, cpf, salario, 2, 3000);
+            base.Usr = "designer_";
+            ValidaSalario(nome, cpf, salario, 2, 3000, (base.Usr+ cpf.Substring(0, 7)), base.Senha);
         }
 
         public override double GetBonificacao()

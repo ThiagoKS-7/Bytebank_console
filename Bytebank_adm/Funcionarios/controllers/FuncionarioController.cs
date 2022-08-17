@@ -42,7 +42,7 @@ namespace Bytebank_adm.Funcionarios.controllers
         {
             double total = 0;
             FuncView fv = new FuncView();
-            foreach (Colaborador i in list)
+            foreach (Colaborador i in funcionarios)
             {
                 total += i.GetBonificacao(); 
             }
@@ -53,13 +53,15 @@ namespace Bytebank_adm.Funcionarios.controllers
             FuncView fv = new FuncView();
             list = GetTipo(funcionarios);
             fv.ShowFuncionarios(list);
+            list = null;
         }
 
         public void ListarSaldos(List<Colaborador> funcionarios)
         {
             FuncView fv = new FuncView();
             list = GetTipo(funcionarios);
-            fv.ShowFuncionarios(list);
+            fv.ShowBalance(list);
+            list = null;
         }
     }
 }

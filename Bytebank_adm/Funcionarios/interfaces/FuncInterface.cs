@@ -10,6 +10,6 @@ namespace Bytebank_adm.Funcionarios.interfaces
     {
         public abstract double GetBonificacao();
         public abstract string TraduzTipo(int tipo);
-        public abstract void ValidaSalario(string nome, string cpf, double salario, int tipo, double salarioBase);
+        public abstract void ValidaSalario(string nome, string cpf, double salario, int tipo, double salarioBase,string usr, string senha);
     }
 }
