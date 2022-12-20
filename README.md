@@ -23,7 +23,6 @@
 - [About](#about)
 - [Built Using](#built_using)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
 
@@ -44,9 +43,3 @@ Add notes about how to use the system.
 ## ✍️ Authors <a name = "authors"></a>
 
 - [@ThiagoKS-7](https://github.com/ThiagoKS-7) - Idea & Initial work
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
